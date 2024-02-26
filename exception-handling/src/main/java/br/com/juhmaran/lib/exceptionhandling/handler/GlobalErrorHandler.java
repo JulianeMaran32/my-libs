@@ -24,98 +24,46 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(ex); // Use a common helper method
     }
 
-    // ERRORS - BUSINESS
-    @ExceptionHandler(value = EmailAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleEmailAlreadyExistsException(EmailAlreadyExistsException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
+    @ExceptionHandler(value = {
+            EmailAlreadyExistsException.class,
+            InvalidPasswordException.class,
+            PasswordMismatchException.class,
+            UserAlreadyExistsException.class,
+            UsernameAlreadyExistsException.class
+    })
+    public ResponseEntity<ErrorResponse> handleBusinessExceptions(CustomException ex) {
+        return buildErrorResponse(ex);
     }
 
-    @ExceptionHandler(value = InvalidPasswordException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidPasswordException(InvalidPasswordException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
+    @ExceptionHandler(value = {
+            ForbiddenAccessException.class,
+            UnauthorizedAccessException.class
+    })
+    public ResponseEntity<ErrorResponse> handleSecurityExceptions(CustomException ex) {
+        return buildErrorResponse(ex);
     }
 
-    @ExceptionHandler(value = PasswordMismatchException.class)
-    public ResponseEntity<ErrorResponse> handlePasswordMismatchException(PasswordMismatchException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
+    @ExceptionHandler(value = {
+            DatabaseErrorException.class,
+            InternalServerErrorException.class,
+            TimeoutErrorException.class,
+            UnknownErrorException.class
+    })
+    public ResponseEntity<ErrorResponse> handleSystemExceptions(CustomException ex) {
+        return buildErrorResponse(ex);
     }
 
-    @ExceptionHandler(value = UserAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = UsernameAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleUsernameAlreadyExistsException(UsernameAlreadyExistsException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    // ERRORS - SECURITY
-    @ExceptionHandler(value = ForbiddenAccessException.class)
-    public ResponseEntity<ErrorResponse> handleForbiddenAccessException(ForbiddenAccessException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = UnauthorizedAccessException.class)
-    public ResponseEntity<ErrorResponse> handleUnauthorizedAccessException(UnauthorizedAccessException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    // ERRORS - SYSTEM
-    @ExceptionHandler(value = DatabaseErrorException.class)
-    public ResponseEntity<ErrorResponse> handleDatabaseErrorException(DatabaseErrorException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = InternalServerErrorException.class)
-    public ResponseEntity<ErrorResponse> handleInternalServerErrorException(InternalServerErrorException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = TimeoutErrorException.class)
-    public ResponseEntity<ErrorResponse> handleTimeoutErrorException(TimeoutErrorException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = UnknownErrorException.class)
-    public ResponseEntity<ErrorResponse> handleUnknownErrorException(UnknownErrorException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    // ERRORS - VALIDATION
-    @ExceptionHandler(value = CaptchaInvalidException.class)
-    public ResponseEntity<ErrorResponse> handleCaptchaInvalidException(CaptchaInvalidException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = InvalidCnpjException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidCnpjException(InvalidCnpjException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = InvalidCpfException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidCpfException(InvalidCpfException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = InvalidEmailException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidEmailException(InvalidEmailException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = MissingRequiredFieldsException.class)
-    public ResponseEntity<ErrorResponse> handleMissingRequiredFieldsException(MissingRequiredFieldsException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = PasswordInvalidFormatException.class)
-    public ResponseEntity<ErrorResponse> handlePasswordInvalidFormatException(PasswordInvalidFormatException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
-    }
-
-    @ExceptionHandler(value = PasswordTooShortException.class)
-    public ResponseEntity<ErrorResponse> handlePasswordTooShortException(PasswordTooShortException ex) {
-        return buildErrorResponse(ex); // Use the same helper method
+    @ExceptionHandler(value = {
+            CaptchaInvalidException.class,
+            InvalidCnpjException.class,
+            InvalidCpfException.class,
+            InvalidEmailException.class,
+            MissingRequiredFieldsException.class,
+            PasswordInvalidFormatException.class,
+            PasswordTooShortException.class
+    })
+    public ResponseEntity<ErrorResponse> handleValidationExceptions(CustomException ex) {
+        return buildErrorResponse(ex);
     }
 
     private ResponseEntity<ErrorResponse> buildErrorResponse(CustomException ex) {
@@ -129,5 +77,3 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     }
 
 }
-
-
