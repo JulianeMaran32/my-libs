@@ -1,9 +1,9 @@
 # Check list
 
-- [ ] **Equipe**
-- [ ] **Tema**
+- [X] **Equipe**
+- [X] **Tema**
 - [ ] **Gerencaimento e Versionamento**
-- [ ] Repositório Git
+- [X] Repositório Git
 - [ ] Trello / Kanban
 - [ ] **Quadro "3 Objetos"**
 - [ ] **Quadro "É - NÃO É - FAZ - NÃO FAZ"**
