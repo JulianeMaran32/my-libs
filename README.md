@@ -1,1 +1,30 @@
-# my-project
+# Check list
+
+- [ ] **Equipe**
+- [ ] **Tema**
+- [ ] **Gerencaimento e Versionamento**
+- [ ] Repositório Git
+- [ ] Trello / Kanban
+- [ ] **Quadro "3 Objetos"**
+- [ ] **Quadro "É - NÃO É - FAZ - NÃO FAZ"**
+- [ ] **Visão do Produto**
+- [ ] Problemas
+- [ ] Expectativas
+- [ ] Cliente-Alvo
+- [ ] Categoria-Segmento
+- [ ] Benefício-Chave
+- [ ] Diferenciado-Chave
+- [ ] Meta-Valor
+- [ ] **Relação de Requisitos Funcionais**
+- [ ] **Caso de Uso**
+- [ ] Relação de Atores
+- [ ] Diagrama de Caso de Uso Geral
+- [ ] **Relação de Histórias de Usuário**
+- [ ] Requisito 1
+- [ ] Requisito 2
+- [ ] **Modelo de Dados**
+- [ ] **Analytics**
+- [ ] Objetivo de Negócios
+- [ ] Fonte de Dados
+- [ ] Processo de ETL (Extract-Transform-Load)
+- [ ] Projeto de Dashboard
