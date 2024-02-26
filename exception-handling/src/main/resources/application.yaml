@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: exception-handling
+
+logging:
+  level:
+    web: DEBUG
