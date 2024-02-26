@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.business;
 
-public class PaymentFailedException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class PaymentFailedException extends CustomException {
     public PaymentFailedException() {
+        super(ErrorStatus.PAYMENT_FAILED);
     }
 
-    public PaymentFailedException(String message) {
-        super(message);
-    }
-
-    public PaymentFailedException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public PaymentFailedException(Throwable cause) {
-        super(cause);
-    }
 }

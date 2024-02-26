@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.business;
 
-public class EmailAlreadyExistsException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class EmailAlreadyExistsException extends CustomException {
     public EmailAlreadyExistsException() {
+        super(ErrorStatus.EMAIL_ALREADY_EXISTS);
     }
 
-    public EmailAlreadyExistsException(String message) {
-        super(message);
-    }
-
-    public EmailAlreadyExistsException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public EmailAlreadyExistsException(Throwable cause) {
-        super(cause);
-    }
 }

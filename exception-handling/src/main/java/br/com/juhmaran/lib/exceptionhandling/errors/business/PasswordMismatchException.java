@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.business;
 
-public class PasswordMismatchException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class PasswordMismatchException extends CustomException {
     public PasswordMismatchException() {
+        super(ErrorStatus.PASSWORD_MISMATCH);
     }
 
-    public PasswordMismatchException(String message) {
-        super(message);
-    }
-
-    public PasswordMismatchException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public PasswordMismatchException(Throwable cause) {
-        super(cause);
-    }
 }

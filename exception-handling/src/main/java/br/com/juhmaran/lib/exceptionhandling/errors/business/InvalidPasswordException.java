@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.business;
 
-public class InvalidPasswordException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class InvalidPasswordException extends CustomException {
     public InvalidPasswordException() {
+        super(ErrorStatus.INVALID_PASSWORD);
     }
 
-    public InvalidPasswordException(String message) {
-        super(message);
-    }
-
-    public InvalidPasswordException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public InvalidPasswordException(Throwable cause) {
-        super(cause);
-    }
 }

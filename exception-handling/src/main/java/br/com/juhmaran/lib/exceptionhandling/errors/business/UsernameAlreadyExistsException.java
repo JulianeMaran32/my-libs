@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.business;
 
-public class UsernameAlreadyExistsException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class UsernameAlreadyExistsException extends CustomException {
     public UsernameAlreadyExistsException() {
+        super(ErrorStatus.EMAIL_ALREADY_EXISTS);
     }
 
-    public UsernameAlreadyExistsException(String message) {
-        super(message);
-    }
-
-    public UsernameAlreadyExistsException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public UsernameAlreadyExistsException(Throwable cause) {
-        super(cause);
-    }
 }

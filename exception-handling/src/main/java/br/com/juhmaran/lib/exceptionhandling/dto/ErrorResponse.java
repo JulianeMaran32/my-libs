@@ -3,14 +3,16 @@ package br.com.juhmaran.lib.exceptionhandling.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
 @Builder
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class ErrorResponse {
 
-    private Integer code; // ex.: 400
-    private String status; // ex.: Bad Request
-    private String message; // ex.: Erro ao enviar a requisição
+    private Integer code;
+    private String status;
+    private String message;
 
 }

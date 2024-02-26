@@ -32,6 +32,6 @@ public enum ErrorStatus {
 
     private final int code;
     private final String status;
-    private final String messsage;
+    private final String message;
 
 }
