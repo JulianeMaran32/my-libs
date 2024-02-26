@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.validation;
 
-public class InvalidCpfException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class InvalidCpfException extends CustomException {
     public InvalidCpfException() {
+        super(ErrorStatus.INVALID_CPF);
     }
 
-    public InvalidCpfException(String message) {
-        super(message);
-    }
-
-    public InvalidCpfException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public InvalidCpfException(Throwable cause) {
-        super(cause);
-    }
 }

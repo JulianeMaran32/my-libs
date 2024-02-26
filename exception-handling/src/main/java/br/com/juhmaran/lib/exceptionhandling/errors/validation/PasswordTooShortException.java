@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.validation;
 
-public class PasswordTooShortException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class PasswordTooShortException extends CustomException {
     public PasswordTooShortException() {
+        super(ErrorStatus.PASSWORD_TOO_SHORT);
     }
 
-    public PasswordTooShortException(String message) {
-        super(message);
-    }
-
-    public PasswordTooShortException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public PasswordTooShortException(Throwable cause) {
-        super(cause);
-    }
 }

@@ -10,6 +10,7 @@ import br.com.juhmaran.lib.exceptionhandling.errors.system.DatabaseErrorExceptio
 import br.com.juhmaran.lib.exceptionhandling.errors.system.InternalServerErrorException;
 import br.com.juhmaran.lib.exceptionhandling.errors.system.TimeoutErrorException;
 import br.com.juhmaran.lib.exceptionhandling.errors.system.UnknownErrorException;
+import br.com.juhmaran.lib.exceptionhandling.errors.validation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -78,6 +79,42 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = UnknownErrorException.class)
     public ResponseEntity<ErrorResponse> handleUnknownErrorException(UnknownErrorException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    // ERRORS - VALIDATION
+    @ExceptionHandler(value = CaptchaInvalidException.class)
+    public ResponseEntity<ErrorResponse> handleCaptchaInvalidException(CaptchaInvalidException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = InvalidCnpjException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidCnpjException(InvalidCnpjException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = InvalidCpfException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidCpfException(InvalidCpfException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = InvalidEmailException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidEmailException(InvalidEmailException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = MissingRequiredFieldsException.class)
+    public ResponseEntity<ErrorResponse> handleMissingRequiredFieldsException(MissingRequiredFieldsException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = PasswordInvalidFormatException.class)
+    public ResponseEntity<ErrorResponse> handlePasswordInvalidFormatException(PasswordInvalidFormatException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = PasswordTooShortException.class)
+    public ResponseEntity<ErrorResponse> handlePasswordTooShortException(PasswordTooShortException ex) {
         return buildErrorResponse(ex); // Use the same helper method
     }
 

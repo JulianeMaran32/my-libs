@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.validation;
 
-public class MissingRequiredFieldsException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class MissingRequiredFieldsException extends CustomException {
     public MissingRequiredFieldsException() {
+        super(ErrorStatus.MISSING_REQUIRED_FIELDS);
     }
 
-    public MissingRequiredFieldsException(String message) {
-        super(message);
-    }
-
-    public MissingRequiredFieldsException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public MissingRequiredFieldsException(Throwable cause) {
-        super(cause);
-    }
 }

@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.validation;
 
-public class InvalidCnpjException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class InvalidCnpjException extends CustomException {
     public InvalidCnpjException() {
+        super(ErrorStatus.INVALID_CNPJ);
     }
 
-    public InvalidCnpjException(String message) {
-        super(message);
-    }
-
-    public InvalidCnpjException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public InvalidCnpjException(Throwable cause) {
-        super(cause);
-    }
 }

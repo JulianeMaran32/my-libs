@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.validation;
 
-public class PasswordInvalidFormatException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class PasswordInvalidFormatException extends CustomException {
     public PasswordInvalidFormatException() {
+        super(ErrorStatus.PASSWORD_INVALID_FORMAT);
     }
 
-    public PasswordInvalidFormatException(String message) {
-        super(message);
-    }
-
-    public PasswordInvalidFormatException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public PasswordInvalidFormatException(Throwable cause) {
-        super(cause);
-    }
 }

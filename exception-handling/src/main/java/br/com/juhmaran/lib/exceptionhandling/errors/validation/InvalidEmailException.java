@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.validation;
 
-public class InvalidEmailException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class InvalidEmailException extends CustomException {
     public InvalidEmailException() {
+        super(ErrorStatus.INVALID_EMAIL);
     }
 
-    public InvalidEmailException(String message) {
-        super(message);
-    }
-
-    public InvalidEmailException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public InvalidEmailException(Throwable cause) {
-        super(cause);
-    }
 }
