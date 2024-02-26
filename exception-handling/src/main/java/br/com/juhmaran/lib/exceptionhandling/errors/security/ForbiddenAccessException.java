@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.security;
 
-public class ForbiddenAccessException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class ForbiddenAccessException extends CustomException {
     public ForbiddenAccessException() {
+        super(ErrorStatus.FORBIDDEN_ACCESS);
     }
 
-    public ForbiddenAccessException(String message) {
-        super(message);
-    }
-
-    public ForbiddenAccessException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public ForbiddenAccessException(Throwable cause) {
-        super(cause);
-    }
 }

@@ -1,18 +1,11 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.security;
 
-public class UnauthorizedAccessException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class UnauthorizedAccessException extends CustomException {
     public UnauthorizedAccessException() {
+        super(ErrorStatus.UNAUTHORIZED_ACCESS);
     }
 
-    public UnauthorizedAccessException(String message) {
-        super(message);
-    }
-
-    public UnauthorizedAccessException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public UnauthorizedAccessException(Throwable cause) {
-        super(cause);
-    }
 }

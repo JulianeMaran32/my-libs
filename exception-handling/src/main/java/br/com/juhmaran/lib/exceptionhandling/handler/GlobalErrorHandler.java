@@ -4,6 +4,8 @@ import br.com.juhmaran.lib.exceptionhandling.dto.ErrorResponse;
 import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
 import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
 import br.com.juhmaran.lib.exceptionhandling.errors.business.*;
+import br.com.juhmaran.lib.exceptionhandling.errors.security.ForbiddenAccessException;
+import br.com.juhmaran.lib.exceptionhandling.errors.security.UnauthorizedAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -40,6 +42,17 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = UsernameAlreadyExistsException.class)
     public ResponseEntity<ErrorResponse> handleUsernameAlreadyExistsException(UsernameAlreadyExistsException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    // ERRORS - SECURITY
+    @ExceptionHandler(value = ForbiddenAccessException.class)
+    public ResponseEntity<ErrorResponse> handleForbiddenAccessException(ForbiddenAccessException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = UnauthorizedAccessException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorizedAccessException(UnauthorizedAccessException ex) {
         return buildErrorResponse(ex); // Use the same helper method
     }
 
