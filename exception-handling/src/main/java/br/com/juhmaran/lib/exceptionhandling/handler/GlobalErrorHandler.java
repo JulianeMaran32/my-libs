@@ -6,6 +6,10 @@ import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
 import br.com.juhmaran.lib.exceptionhandling.errors.business.*;
 import br.com.juhmaran.lib.exceptionhandling.errors.security.ForbiddenAccessException;
 import br.com.juhmaran.lib.exceptionhandling.errors.security.UnauthorizedAccessException;
+import br.com.juhmaran.lib.exceptionhandling.errors.system.DatabaseErrorException;
+import br.com.juhmaran.lib.exceptionhandling.errors.system.InternalServerErrorException;
+import br.com.juhmaran.lib.exceptionhandling.errors.system.TimeoutErrorException;
+import br.com.juhmaran.lib.exceptionhandling.errors.system.UnknownErrorException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -53,6 +57,27 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = UnauthorizedAccessException.class)
     public ResponseEntity<ErrorResponse> handleUnauthorizedAccessException(UnauthorizedAccessException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    // ERRORS - SYSTEM
+    @ExceptionHandler(value = DatabaseErrorException.class)
+    public ResponseEntity<ErrorResponse> handleDatabaseErrorException(DatabaseErrorException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = InternalServerErrorException.class)
+    public ResponseEntity<ErrorResponse> handleInternalServerErrorException(InternalServerErrorException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = TimeoutErrorException.class)
+    public ResponseEntity<ErrorResponse> handleTimeoutErrorException(TimeoutErrorException ex) {
+        return buildErrorResponse(ex); // Use the same helper method
+    }
+
+    @ExceptionHandler(value = UnknownErrorException.class)
+    public ResponseEntity<ErrorResponse> handleUnknownErrorException(UnknownErrorException ex) {
         return buildErrorResponse(ex); // Use the same helper method
     }
 

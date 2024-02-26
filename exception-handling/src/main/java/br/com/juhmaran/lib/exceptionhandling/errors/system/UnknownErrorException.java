@@ -1,19 +1,12 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.system;
 
-public class UnknownErrorException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class UnknownErrorException extends CustomException {
 
     public UnknownErrorException() {
+        super(ErrorStatus.UNKNOWN_ERROR);
     }
 
-    public UnknownErrorException(String message) {
-        super(message);
-    }
-
-    public UnknownErrorException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public UnknownErrorException(Throwable cause) {
-        super(cause);
-    }
 }

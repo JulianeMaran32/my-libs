@@ -1,19 +1,12 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.system;
 
-public class TimeoutErrorException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class TimeoutErrorException extends CustomException {
 
     public TimeoutErrorException() {
+        super(ErrorStatus.TIMEOUT_ERROR);
     }
 
-    public TimeoutErrorException(String message) {
-        super(message);
-    }
-
-    public TimeoutErrorException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public TimeoutErrorException(Throwable cause) {
-        super(cause);
-    }
 }

@@ -1,19 +1,12 @@
 package br.com.juhmaran.lib.exceptionhandling.errors.system;
 
-public class InternalServerErrorException extends RuntimeException {
+import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
+import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
+
+public class InternalServerErrorException extends CustomException {
 
     public InternalServerErrorException() {
+        super(ErrorStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public InternalServerErrorException(String message) {
-        super(message);
-    }
-
-    public InternalServerErrorException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public InternalServerErrorException(Throwable cause) {
-        super(cause);
-    }
 }
