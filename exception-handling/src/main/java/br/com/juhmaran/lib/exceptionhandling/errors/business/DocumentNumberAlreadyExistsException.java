@@ -5,7 +5,7 @@ import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Classe responsável por lançar a exceção UsernameAlreadyExistsException para USERNAME já cadastrado.
+ * Classe responsável por lançar a exceção UsernameAlreadyExistsException para CPF ou CNPJ já cadastrado.
  * <p>
  * Indica que o nome de usuário já existe.
  *
@@ -13,10 +13,10 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2024-02-27
  */
 @Slf4j
-public class UsernameAlreadyExistsException extends CustomException {
-    public UsernameAlreadyExistsException() {
+public class DocumentNumberAlreadyExistsException extends CustomException {
+    public DocumentNumberAlreadyExistsException() {
         super(ErrorStatus.EMAIL_ALREADY_EXISTS);
-        log.error("Exceção UsernameAlreadyExistsException lançada: Nome de usuário já existente.");
+        log.error("Exceção DocumentNumberAlreadyExistsException lançada: Número de documento já existente.");
     }
 
 }
