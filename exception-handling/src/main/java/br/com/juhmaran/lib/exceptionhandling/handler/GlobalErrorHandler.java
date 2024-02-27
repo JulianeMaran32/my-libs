@@ -35,6 +35,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(value = {
+            DocumentNumberAlreadyExistsException.class,
             EmailAlreadyExistsException.class,
             InvalidPasswordException.class,
             PasswordMismatchException.class,
