@@ -11,17 +11,27 @@ import br.com.juhmaran.lib.exceptionhandling.errors.system.InternalServerErrorEx
 import br.com.juhmaran.lib.exceptionhandling.errors.system.TimeoutErrorException;
 import br.com.juhmaran.lib.exceptionhandling.errors.system.UnknownErrorException;
 import br.com.juhmaran.lib.exceptionhandling.errors.validation.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * Esta classe intercepta exceções lançadas em controladores da API e mapeia cada tipo de exceção para uma resposta HTTP
+ * apropriada com código de status e mensagem de erro.
+ *
+ * @author juliane.maran
+ * @since 2024-02-27
+ */
+@Slf4j
 @RestControllerAdvice
 public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = CustomException.class)
     public ResponseEntity<ErrorResponse> handleCustomExceptions(CustomException ex) {
-        return buildErrorResponse(ex); // Use a common helper method
+        log.error("Exceção CustomException capturada: {}", ex.getMessage(), ex);
+        return buildErrorResponse(ex);
     }
 
     @ExceptionHandler(value = {
@@ -32,6 +42,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
             UsernameAlreadyExistsException.class
     })
     public ResponseEntity<ErrorResponse> handleBusinessExceptions(CustomException ex) {
+        log.error("Exceção de negócio capturada: {}", ex.getMessage());
         return buildErrorResponse(ex);
     }
 
@@ -40,6 +51,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
             UnauthorizedAccessException.class
     })
     public ResponseEntity<ErrorResponse> handleSecurityExceptions(CustomException ex) {
+        log.error("Exceção de segurança capturada: {}", ex.getMessage());
         return buildErrorResponse(ex);
     }
 
@@ -50,6 +62,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
             UnknownErrorException.class
     })
     public ResponseEntity<ErrorResponse> handleSystemExceptions(CustomException ex) {
+        log.error("Exceção de sistema capturada: {}", ex.getMessage());
         return buildErrorResponse(ex);
     }
 
@@ -63,6 +76,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
             PasswordTooShortException.class
     })
     public ResponseEntity<ErrorResponse> handleValidationExceptions(CustomException ex) {
+        log.error("Exceção de validação capturada: {}", ex.getMessage());
         return buildErrorResponse(ex);
     }
 
