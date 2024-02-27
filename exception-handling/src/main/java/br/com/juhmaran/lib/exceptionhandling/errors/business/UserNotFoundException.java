@@ -5,18 +5,18 @@ import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Classe responsável por lançar a exceção IdNotFoundException
+ * Classe responsável por lançar a exceção UserNotFoundException
  * <p>
- * Indica que o ID não foi encontrado
+ * Indica que o Usuário não foi encontrado
  *
  * @author juliane.maran
  * @since 2024-02-27
  */
 @Slf4j
-public class IdNotFoundException extends CustomException {
-    public IdNotFoundException() {
-        super(ErrorStatus.EMAIL_ALREADY_EXISTS);
-        log.error("Exceção IdNotFoundException lançada: ID informado não foi encontrado.");
+public class UserNotFoundException extends CustomException {
+    public UserNotFoundException() {
+        super(ErrorStatus.USER_NOT_FOUND);
+        log.error("Exceção UserNotFoundException lançada: Usuário informado não foi encontrado.");
     }
 
 }
