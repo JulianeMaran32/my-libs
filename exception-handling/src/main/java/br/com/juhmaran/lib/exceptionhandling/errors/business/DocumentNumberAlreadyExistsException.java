@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DocumentNumberAlreadyExistsException extends CustomException {
     public DocumentNumberAlreadyExistsException() {
-        super(ErrorStatus.EMAIL_ALREADY_EXISTS);
+        super(ErrorStatus.DOCUMENT_NUMBER_ALREADY_EXISTS);
         log.error("Exceção DocumentNumberAlreadyExistsException lançada: Número de documento já existente.");
     }
 

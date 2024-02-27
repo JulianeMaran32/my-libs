@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: br.com.juhmaran.lib.exceptionhandling.ExceptionHandlingAppli
+ cation
+

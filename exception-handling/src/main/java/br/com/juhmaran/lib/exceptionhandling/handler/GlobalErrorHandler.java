@@ -4,6 +4,8 @@ import br.com.juhmaran.lib.exceptionhandling.dto.ErrorResponse;
 import br.com.juhmaran.lib.exceptionhandling.dto.ErrorStatus;
 import br.com.juhmaran.lib.exceptionhandling.errors.CustomException;
 import br.com.juhmaran.lib.exceptionhandling.errors.business.*;
+import br.com.juhmaran.lib.exceptionhandling.errors.generic.GenericBadRequestException;
+import br.com.juhmaran.lib.exceptionhandling.errors.generic.GenericNotFoundException;
 import br.com.juhmaran.lib.exceptionhandling.errors.security.ForbiddenAccessException;
 import br.com.juhmaran.lib.exceptionhandling.errors.security.UnauthorizedAccessException;
 import br.com.juhmaran.lib.exceptionhandling.errors.system.DatabaseErrorException;
@@ -35,11 +37,14 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(value = {
+            DocumentNumberAlreadyExistsException.class,
             EmailAlreadyExistsException.class,
+            IdNotFoundException.class,
             InvalidPasswordException.class,
             PasswordMismatchException.class,
             UserAlreadyExistsException.class,
-            UsernameAlreadyExistsException.class
+            UsernameAlreadyExistsException.class,
+            UserNotFoundException.class
     })
     public ResponseEntity<ErrorResponse> handleBusinessExceptions(CustomException ex) {
         log.error("Exceção de negócio capturada: {}", ex.getMessage());
@@ -77,6 +82,15 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     })
     public ResponseEntity<ErrorResponse> handleValidationExceptions(CustomException ex) {
         log.error("Exceção de validação capturada: {}", ex.getMessage());
+        return buildErrorResponse(ex);
+    }
+
+    @ExceptionHandler(value = {
+            GenericBadRequestException.class,
+            GenericNotFoundException.class
+    })
+    public ResponseEntity<ErrorResponse> handleGenericExceptions(CustomException ex) {
+        log.error("Exceção de genérica capturada: {}", ex.getMessage());
         return buildErrorResponse(ex);
     }
 

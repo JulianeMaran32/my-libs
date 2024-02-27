@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UsernameAlreadyExistsException extends CustomException {
     public UsernameAlreadyExistsException() {
-        super(ErrorStatus.EMAIL_ALREADY_EXISTS);
+        super(ErrorStatus.USERNAME_ALREADY_EXISTS);
         log.error("Exceção UsernameAlreadyExistsException lançada: Nome de usuário já existente.");
     }
 
